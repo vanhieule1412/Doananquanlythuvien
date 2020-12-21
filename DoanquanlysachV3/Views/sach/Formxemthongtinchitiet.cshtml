@@ -1,0 +1,74 @@
+﻿@model DoanquanlysachV3.Models.SACH
+
+
+@{
+    ViewBag.Title = "Formxemthongtinchitiet";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Thông tin chi tiết của sách</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhaXuatBan)
+        </dd>
+        <dt>
+            Tên Nhà Xuất Bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAXUATBAN.TenNhaXuatBan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTheLoai)
+        </dd>
+        <dt>
+            Tên Thể Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THELOAI.TenTheLoai)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+      
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Formsuasach", new { id = Model.MaSach }) |
+    @Html.ActionLink("Trở về sách hiện có", "IndexS")
+</p>

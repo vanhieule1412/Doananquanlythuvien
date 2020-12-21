@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.SACH>
+
+@{
+    ViewBag.Title = "IndexS";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<div>
+    <h2>Sách Hiện Có</h2>
+</div>
+<p>
+    @Html.ActionLink("Thêm Sách Mới", "Formthemsach")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+        </th>*@
+        <th>
+            Tên Nhà Xuất Bản
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </th>*@
+        <th>
+            Tên Thể Loại
+        </th>
+     
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            Tên Tác Giả 
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MaNhaXuatBan)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNhaXuatBan)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MaTheLoai)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.THELOAI.TenTheLoai)
+        </td>
+       
+
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <th>
+
+        </th>
+
+        <td>
+            @Html.ActionLink("Sửa", "Formsuasach", new { id = item.MaSach }) |
+            @Html.ActionLink("Xem thông tin chi tiết", "Formxemthongtinchitiet", new { id = item.MaSach })
+            @*@Html.ActionLink("Delete", "Formxoasach", new { id = item.MaSach })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.Cchitietsachtacgia>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTacGia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSach)
+        </td>
+        <td>
+            @{ 
+                SelectList selectLists = new SelectList(ViewBag.DStacgia, "MaTacGia", "TenTacGia");
+            }
+            @Html.ListBox("asd",selectLists, new { @class = "custom-control custom-select" })
+        </td>
+       
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.NHAXUATBAN>
+
+@{
+    ViewBag.Title = "IndexNXB";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Danh sách có nhà xuất bản</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Formthemnhaxuatban")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNhaXuatBan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNhaXuatBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNhaXuatBan)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Formsuanhaxuatban", new { id = item.MaNhaXuatBan }) |
+            @*@Html.ActionLink("Xem thông tin chi tiết", "xemthongtinnhaxuatban", new {  id=item.MaNhaXuatBan }) |*@
+            @Html.ActionLink("Xóa", "Formxoanhaxuatban", new { id = item.MaNhaXuatBan })
+        </td>
+    </tr>
+}
+
+</table>

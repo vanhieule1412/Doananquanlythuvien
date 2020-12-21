@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.SACH>
+
+
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+     
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+       
+       
+    </tr>
+}
+
+</table>

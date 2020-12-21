@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.DOCGIA>
+
+@{
+    ViewBag.Title = "IndexDG";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Danh sách các đọc giả</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Formthemdocgia")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDocGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDocGia)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDocGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDocGia)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Tạo thể đọc giả", "Formtaothedocgia", new { id = item.MaDocGia }) |
+            @*@Html.ActionLink("Sửa", "Formsuadocgia", new {  id=item.MaDocGia  }) |*@
+            @*@Html.ActionLink("Details", "Formxemthongtindocgia", new { id = item.MaDocGia })*@ 
+            @Html.ActionLink("Xóa", "Formxoadocgia", new { id=item.MaDocGia  })
+        </td>
+    </tr>
+}
+
+</table>

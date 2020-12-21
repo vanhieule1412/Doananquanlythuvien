@@ -1,0 +1,38 @@
+﻿@model DoanquanlysachV3.Models.DOCGIA
+
+@{
+    ViewBag.Title = "Formxoadocgia";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h3>Bạn có muốn xóa đọc giả này chứ ?</h3>
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDocGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDocGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDocGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDocGia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("xoadocgia","docgia",new {id=Model.MaDocGia })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Trở về danh sách đọc giả", "IndexDG")
+        </div>
+    }
+</div>

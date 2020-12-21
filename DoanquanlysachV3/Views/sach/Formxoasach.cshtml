@@ -1,0 +1,73 @@
+﻿@model DoanquanlysachV3.Models.SACH
+
+@{
+    ViewBag.Title = "Formxoasach";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Formxoasach</h2>
+
+    <h3>Bạn có thật sự muốn xóa cuốn sách này không ?</h3>
+
+
+    <div>
+        <h4>SACH</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaSach)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaSach)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSach)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSach)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaNhaXuatBan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaTheLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaTheLoai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm("xoasach", "sach", new { id = Model.MaSach }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+             
+
+                    <input type="submit" value="Delete" class="btn btn-primary" />
+                
+
+
+            </div>
+        }
+        @Html.ActionLink("Back to List", "IndexS",null,new {@Class="btn btn-primary" })
+    </div>

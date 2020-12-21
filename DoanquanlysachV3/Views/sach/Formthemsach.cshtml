@@ -1,0 +1,100 @@
+﻿@model DoanquanlysachV3.Models.SACH
+
+@{
+    ViewBag.Title = "Formthemsach";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+<h2>Form thêm sách </h2>
+
+@using (Html.BeginForm("themsach", "sach", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaSach, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaSach, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaSach, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TenSach, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenSach, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNhaXuatBan, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                SelectList dsnxb = new SelectList(ViewBag.DSnxb, "MaNhaXuatBan", "TenNhaXuatBan");
+
+            }
+            @Html.DropDownListFor(model => model.MaNhaXuatBan, dsnxb, "----Select List----", new { @class = "custom-control custom-select" })
+            @*@Html.EditorFor(model => model.MaNhaXuatBan, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.MaNhaXuatBan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                SelectList dstheloai = new SelectList(ViewBag.DStheloai, "MaTheLoai", "TenTheLoai");
+
+            }
+            @Html.DropDownListFor(Model => Model.MaTheLoai, dstheloai, "----Select List----", new { @class = "custom-control custom-select" })
+            @*@Html.EditorFor(model => model.MaTheLoai, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.MaTheLoai, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p class=" col-md-2">Tác giả</p>
+        <div class="col-md-2">
+            @{
+                SelectList ds = new SelectList(ViewBag.DStacgia, "MaTacGia", "TenTacGia");
+            }
+            @Html.DropDownList("idtg", ds, "--select list--", new { @Class = "form-control" })
+        </div>
+
+    </div>
+    <div class="form-group" id="divTG">
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Tạo" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+
+<div>
+    @Html.ActionLink("Trở về sách hiện có", "IndexS")
+</div>
+<script type="text/javascript">
+    $().ready(function () {
+        $('#idtg').change(function () {
+            var id = $(this).val();
+            var url = '/sach/chonnhieutacgia/' + id;
+            $.get(url, function (data) { $('#divTG').html(data); });
+        })
+    })
+</script>
+
+
+

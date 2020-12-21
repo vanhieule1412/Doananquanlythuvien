@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "chonnhieu";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<div class="form-control">
+    @{
+        SelectList ds = new SelectList(ViewBag.DStacgia, "MaTacGia", "TenTacGia");
+
+    }
+    @Html.DropDownList("idtg", ds, new { @Class = "form-control" })
+    
+</div>
+<div class="form-control" id="divTG">
+
+</div>
+<script type="text/javascript">
+    $().ready(function () {
+        $('#idtg').change(function () { //Nếu có sự thay đổi trong dropdownlist thì change sẽ dc thực thi
+            var id = $(this).val(); //this tham chiếu tới dữ liệu vừa thay đổi
+            var url = '/sach/chonnhieutacgia/' + id;
+            $.get(url, function (data) { $('#divTG').html(data); });//gửi yêu cầu về cho server gồm cái action và controller và id
+            //giá trị trả về ở patre view
+        })
+    })
+</script>

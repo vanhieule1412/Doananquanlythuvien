@@ -1,0 +1,38 @@
+﻿@model DoanquanlysachV3.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "Formxoanhaxuatban";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h3>Bạn có chắc muốn xóa nhà xuất bản này chứ ? </h3>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhaXuatBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNhaXuatBan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("xoanhaxuatban","nhaxuatban",new {id=Model.MaNhaXuatBan })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Trở về danh sách các nhà xuất bản", "IndexNXB")
+        </div>
+    }
+</div>

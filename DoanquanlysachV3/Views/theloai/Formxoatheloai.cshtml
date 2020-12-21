@@ -1,0 +1,39 @@
+﻿@model DoanquanlysachV3.Models.THELOAI
+
+@{
+    ViewBag.Title = "Formxoatheloai";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h3>Bạn có chắc muốn xóa thể loại này chứ ?</h3>
+<hr />
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTheLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTheLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("xoatheloai", "theloai",new {id=Model.MaTheLoai })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Trở về danh sách thể loại", "IndexTL")
+        </div>
+    }
+</div>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+    <title>@ViewBag.Title</title>
+
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <div class="text-center">
+                    <h2>Quản lý thư viện</h2>
+                </div>
+            </div>
+            <div class="card-title ">
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <ul class="nav list-group-horizontal d-flex justify-content-xl-start ">
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Quản lý NXB", "IndexNXB", "nhaxuatban")
+                            </li>
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Quản lý TÁCGIẢ", "IndexTG", "tacgia")
+                            </li>
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Quản lý THỂLOẠI", "IndexTL", "theloai")
+                            </li>
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Quản lý SÁCH", "IndexS", "sach")
+                            </li>
+                            @*<li class="nav-item list-group-item ">
+            @Html.ActionLink("Chọn nhiều tác giả", "IndexCN", "chonhnieu")
+        </li>*@
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Đọc giả", "IndexDG", "docgia")
+                            </li>
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Thẻ Đọc giả", "IndexTDG", "thedocgia")
+                            </li>
+                            <li class="nav-item list-group-item ">
+                                @Html.ActionLink("Phiếu Mượn", "IndexPM", "phieumuon")
+                            </li>
+                         
+
+
+
+                            @*<li class="nav-item list-group-item ">
+
+            @Html.ActionLink("Quản lý Thẻ Đọc Giả", "IndexTDG", "thedocgia")
+        </li>
+        <li class="nav-item list-group-item ">
+            @Html.ActionLink("Quản lý Đọc Giả", "IndexDG", "docgia")
+        </li>*@
+                        </ul>
+                    </div>
+                    @*<div class="col-md-4">
+                            <ul class="nav list-group-horizontal float-right">
+                                @if (Session["dociga"] == null)
+                                {
+                                    <li class="nav-item list-group-item bg-primary ">
+                                        @Html.ActionLink("Quản lý đọc giả", "IndexDG", null, new { @Class = "text-white" })
+                                    </li>
+                                    <li class="nav-item list-group-item bg-primary ">
+                                        @Html.ActionLink("Đăng ký", "menu2", null, new { @Class = "text-white" })
+                                    </li>
+                                }
+                                else
+                                {
+
+                                    Doanquanlythuvienv2.Models.DOCGIA dg = Session["docgia"] as Doanquanlythuvienv2.Models.DOCGIA;
+
+                                    <li class="nav-item list-group-item bg-primary ">
+                                        <span>@dg.MaDG</span>
+                                    </li>
+                                    <li class="nav-item list-group-item bg-primary ">
+                                        @Html.ActionLink("Đăng xuất", "dangxuatHeThong", null, new { @Class = "text-white" })
+                                    </li>
+                                }
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="card-footer">
+                Footer
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

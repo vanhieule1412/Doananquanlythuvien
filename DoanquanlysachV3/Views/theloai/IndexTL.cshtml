@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.THELOAI>
+
+@{
+    ViewBag.Title = "IndexTL";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Danh sách các thể loại</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Formthemtheloai")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTheLoai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTheLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTheLoai)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Formsuatheloai", new {  id=item.MaTheLoai }) |
+            @*@Html.ActionLink("Details", "xemthongtintheloai", new {  id=item.MaTheLoai }) |*@
+            @Html.ActionLink("Xóa", "Formxoatheloai", new {  id=item.MaTheLoai })
+        </td>
+    </tr>
+}
+
+</table>

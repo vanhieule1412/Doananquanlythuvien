@@ -1,0 +1,33 @@
+﻿@model DoanquanlysachV3.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "xemthongtinnhaxuatban";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>xemthongtinnhaxuatban</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNhaXuatBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNhaXuatBan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Formsuanhaxuatban", new {  id = Model.MaNhaXuatBan }) |
+    @Html.ActionLink("Trở về danh sách các nhà xuất bản", "IndexNXB")
+</p>

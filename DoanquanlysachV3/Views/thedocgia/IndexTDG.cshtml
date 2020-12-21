@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.THEDOCGIA>
+
+@{
+    ViewBag.Title = "IndexTDG";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>IndexTDG</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTheDocGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDocGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayHet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDocGia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTheDocGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDocGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayHet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDocGia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Formxemthongthedocgia", new { id = item.MaTheDocGia }) |
+            @Html.ActionLink("Lập phiếu mượn", "Formthemphieumuon", new { id = item.MaTheDocGia }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

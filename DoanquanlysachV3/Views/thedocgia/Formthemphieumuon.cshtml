@@ -1,0 +1,96 @@
+﻿@model DoanquanlysachV3.Models.PHIEUMUON
+
+@{
+    ViewBag.Title = "Formthemphieumuon";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Formthemphieumuon</h2>
+
+@using (Html.BeginForm("themphieumuon", "thedocgia", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PHIEUMUON</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaPhieuMuon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaPhieuMuon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaPhieuMuon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayMuon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayMuon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayMuon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayTra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayTra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayTra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTheDocGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTheDocGia, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.mathedocgia } })
+                @Html.ValidationMessageFor(model => model.MaTheDocGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaSach, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @{
+                    SelectList dssach = new SelectList(ViewBag.DsSach, "MaSach", "TenSach");
+                }
+                @*@Html.EditorFor(model => model.MaSach, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("chonnhieusach", dssach,"----Select List----", new { @Class = "form-control" })
+
+            </div>
+        </div>
+        <div class="form-group col-md-10" id="divS">
+
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongSachMuon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongSachMuon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongSachMuon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "IndexTDG")
+</div>
+<script type="text/javascript">
+    $().ready(function () {
+        $('#chonnhieusach').change(function () {
+            var id = $(this).val();
+            var url ='/thedocgia/chonnhieusach/'+ id;
+            $.get(url, function (data) { $('#divS').html(data); });
+        });
+    });
+
+</script>
+
+

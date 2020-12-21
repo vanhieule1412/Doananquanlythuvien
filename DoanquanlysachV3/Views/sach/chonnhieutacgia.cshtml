@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.TACGIA>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.MaTacGia)
+            </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.TenTacGia)
+        </th>*@
+        <th>Tên Tác Giả</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.MaTacGia)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTacGia)
+            </td>
+
+        </tr>
+    }
+</table>
