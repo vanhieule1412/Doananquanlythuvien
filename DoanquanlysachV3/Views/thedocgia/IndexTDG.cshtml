@@ -5,7 +5,7 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
-<h2>IndexTDG</h2>
+<h2>Danh sách các thẻ đọc giả</h2>
 
 
 <table class="table">
@@ -37,19 +37,27 @@
             @Html.DisplayFor(modelItem => item.TenDocGia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NgayTao)
+
+            @{
+                
+                string ngaytao = item.NgayTao.Value.ToShortDateString();
+            }
+            @Html.DisplayFor(modelItem => ngaytao)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NgayHet)
+            @{
+                string ngayhet = item.NgayHet.Value.ToShortDateString();
+            }
+            @Html.DisplayFor(modelItem => ngayhet)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaDocGia)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Formxemthongthedocgia", new { id = item.MaTheDocGia }) |
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Xem thông tin chi tiết", "Formxemthongthedocgia", new { id = item.MaTheDocGia }) |
             @Html.ActionLink("Lập phiếu mượn", "Formthemphieumuon", new { id = item.MaTheDocGia }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Xóa", "Formxoathedocgia", new {  id=item.MaTheDocGia })
         </td>
     </tr>
 }

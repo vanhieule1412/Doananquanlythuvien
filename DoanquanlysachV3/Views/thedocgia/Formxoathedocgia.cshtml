@@ -1,46 +1,63 @@
 ﻿@model DoanquanlysachV3.Models.THEDOCGIA
 
 @{
-    ViewBag.Title = "Formxemthongthedocgia";
+    ViewBag.Title = "Formxoathedocgia";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
+
+<h3>Bạn chắc chắn muốn xóa thông tin này chứ ?</h3>
 <div>
-    <h4>THÔNG TIN CHI TIẾT</h4>
+    <h4>THEDOCGIA</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.MaTheDocGia)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.MaTheDocGia)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.TenDocGia)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.TenDocGia)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.NgayTao)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.NgayTao)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.NgayHet)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.NgayHet)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.MaDocGia)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.MaDocGia)
         </dd>
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Trở về danh sách thẻ đọc giả", "IndexTDG")
-</p>
 
+    @using (Html.BeginForm("xoathedocgia", "thedocgia", new {id=Model.MaTheDocGia })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+            @Html.ActionLink("Trở về danh sách thẻ đọc giả", "IndexTDG")
+        </div>
+    }
+</div>

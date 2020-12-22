@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DoanquanlysachV3.Models.Cchitietsachtacgia>
+
+@{
+    ViewBag.Title = "IndexCT";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTacGia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @{ 
+                SelectList ds = new SelectList(ViewBag.chitiet, "MaSach", "MaSach");
+            }
+          @Html.ListBox("asd",ds, new { @Class = "form-control" })
+        </td>
+        <td>
+            @{
+                SelectList dstg = new SelectList(ViewBag.chitiet, "MaTacGia", "MaTacGia");
+            }
+            @Html.ListBox("asd", dstg, new { @Class = "form-control" })
+        </td>
+       
+    </tr>
+}
+
+</table>

@@ -40,25 +40,28 @@ namespace DoanquanlysachV3.Controllers
         {
             Models.SACH sACH = dc.SACHes.Find(id);
             //List<Models.TACGIA> ds = Session["DStacgia"] as List<Models.TACGIA>;
-            List<Models.Cchitietsachtacgia> ds = Session["DSchitiet"] as List<Models.Cchitietsachtacgia>;
+              List<Models.Cchitietsachtacgia> ds = Session["DSchitiet"] as List<Models.Cchitietsachtacgia>;
+            Cchitietsachtacgia cchitietsachtacgia = new Cchitietsachtacgia();
+            
             //dc.TACGIAs.AddRange(ds);
+            ViewBag.chitiet = cchitietsachtacgia;
           
             return View(sACH);
         }
-        public ActionResult xemnhieutacgia(string id)
-        {
-            Models.SACH sACH= dc.SACHes.Find(id);
-            List<Models.Cchitietsachtacgia> ds = Session["DSchitiet"] as List<Models.Cchitietsachtacgia>;
-                if (sACH.MaSach == id)
-                {
-                    if(ds.Find(x=>x.MaSach==sACH.MaSach)==null)
-                    {
-                        d
-                    }
-                
-                }   
-            return View(ds);
-        }
+        //public ActionResult xemnhieutacgia(string id)
+        //{
+        //    Models.SACH sACH= dc.SACHes.Find(id);
+        //    List<Models.Cchitietsachtacgia> ds = Session["DSchitiet"] as List<Models.Cchitietsachtacgia>;
+        //        if (sACH.MaSach == id)
+        //        {
+        //            if(ds.Find(x=>x.MaSach==sACH.MaSach)==null)
+        //            {
+
+        //            }
+
+        //        }   
+        //    return View(ds);
+        //}
 
 
         //public ActionResult Formxoasach(string id)
@@ -90,10 +93,20 @@ namespace DoanquanlysachV3.Controllers
         //public ActionResult xoasach(string id)
         //{
         //    Models.SACH sACH = dc.SACHes.Find(id);
-        //    if (sACH != null) { 
-        //        dc.SACHes.Remove(sACH);
-        //        dc.SaveChanges();
+        //    List<Models.Cchitietsachtacgia> ds = Session["DSchitiet"] as List<Models.Cchitietsachtacgia>;
+        //    //foreach (var item in)
+        //    //{
+        //    //sACH.TACGIAs.Remove(dc.TACGIAs.Find(item.MaTacGia));
+        //    //}
+        //    foreach (var item in ds)
+        //    {
+
+        //        sACH.MaSach.Remove(dc..Find(item.MaSach));
         //    }
+            
+        //    dc.SACHes.Remove(sACH);
+        //    dc.SaveChanges();
+
         //    ViewBag.DSnxb = dc.NHAXUATBANs.ToList();
         //    ViewBag.DStheloai = dc.THELOAIs.ToList();
         //    ViewBag.DStacgia = dc.TACGIAs.ToList();
@@ -105,13 +118,11 @@ namespace DoanquanlysachV3.Controllers
             DoanquanlysachV3.Models.SACH aCH = dc.SACHes.Find(sACH.MaSach);
             if (ModelState.IsValid)
                 {
-                
-                
-                aCH.TenSach = sACH.TenSach;
-                aCH.MaTheLoai = sACH.MaTheLoai;
-                aCH.MaNhaXuatBan = sACH.MaNhaXuatBan;
-                aCH.SoLuong = sACH.SoLuong;
-                dc.SaveChanges();
+                    aCH.TenSach = sACH.TenSach;
+                    aCH.MaTheLoai = sACH.MaTheLoai;
+                    aCH.MaNhaXuatBan = sACH.MaNhaXuatBan;
+                    aCH.SoLuong = sACH.SoLuong;
+                    dc.SaveChanges();
                 return RedirectToAction("IndexS");
                 }
             ViewBag.DSnxb = dc.NHAXUATBANs.ToList();

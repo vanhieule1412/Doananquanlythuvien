@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\chitietController.cs" />
     <Compile Include="Controllers\docgiaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\nhaxuatbanController.cs" />
@@ -344,6 +345,8 @@
     <Content Include="Views\docgia\Formsuadocgia.cshtml" />
     <Content Include="Views\docgia\Formxoadocgia.cshtml" />
     <Content Include="Views\sach\xemnhieutacgia.cshtml" />
+    <Content Include="Views\chitiet\IndexCT.cshtml" />
+    <Content Include="Views\thedocgia\Formxoathedocgia.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

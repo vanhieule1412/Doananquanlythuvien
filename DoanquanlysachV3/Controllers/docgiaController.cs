@@ -65,11 +65,12 @@ namespace DoanquanlysachV3.Controllers
         public ActionResult xoadocgia(string id)
         {
             DoanquanlysachV3.Models.DOCGIA dOCGIA = dc.DOCGIAs.Find(id);
-            if (dOCGIA != null)
+            if (dOCGIA != null )
             {
                 dc.DOCGIAs.Remove(dOCGIA);
                 dc.SaveChanges();
             }
+          
 
             return RedirectToAction("IndexDG");
         }
@@ -83,18 +84,14 @@ namespace DoanquanlysachV3.Controllers
         }
       
         [HttpPost]
-        public ActionResult taothedocgia(DoanquanlysachV3.Models.THEDOCGIA tHEDOCGIA,Models.DOCGIA dOCGIA)
+        public ActionResult taothedocgia(DoanquanlysachV3.Models.THEDOCGIA tHEDOCGIA)
         {
             if (ModelState.IsValid  )
             {
                 dc.THEDOCGIAs.Add(tHEDOCGIA);
                 dc.SaveChanges();
             }
-            else
-            {
-                ModelState.AddModelError("MaDocGia", "Mã đã tồn tại ");
-                return View("Formtaothedocgia");
-            }
+          
             return RedirectToAction("IndexDG");
             
         }

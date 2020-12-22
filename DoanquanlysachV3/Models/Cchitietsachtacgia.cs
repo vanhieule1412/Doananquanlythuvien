@@ -9,7 +9,7 @@ namespace DoanquanlysachV3.Models
     {
         public string MaSach { get; set; }
         public string MaTacGia { get; set; }
-        public virtual SACH SACH { get; set; }
-        public virtual TACGIA TACGIA { get; set; }
+        public virtual ICollection<SACH> sach { get; set; }
+        public virtual ICollection<TACGIA> tacgia { get; set; }
     }
 }

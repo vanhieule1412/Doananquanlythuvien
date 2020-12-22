@@ -36,9 +36,7 @@
         <th>
             @Html.DisplayNameFor(model => model.SoLuong)
         </th>
-        <th>
-            Tên Tác Giả 
-        </th>
+       
     </tr>
 
 @foreach (var item in Model) {
@@ -66,9 +64,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.SoLuong)
         </td>
-        <th>
-
-        </th>
+      
 
         <td>
             @Html.ActionLink("Sửa", "Formsuasach", new { id = item.MaSach }) |

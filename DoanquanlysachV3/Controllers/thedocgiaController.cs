@@ -14,7 +14,27 @@ namespace DoanquanlysachV3.Controllers
         {
             return View(dc.THEDOCGIAs.ToList());
         }
-      
+        public ActionResult Formxoathedocgia(string id)
+        {
+            Models.THEDOCGIA tHEDOCGIA = dc.THEDOCGIAs.Find(id);
+            ViewBag.mathedocgia = tHEDOCGIA.MaTheDocGia;
+            ViewBag.DsSach = dc.SACHes.ToList();
+            ViewBag.Dsthedocgia = dc.THEDOCGIAs.ToList();
+            return View(tHEDOCGIA);
+        }
+        public ActionResult xoathedocgia(string id)
+        {
+            Models.THEDOCGIA tHEDOCGIA = dc.THEDOCGIAs.Find(id);
+            if (tHEDOCGIA!=null)
+            {
+                dc.THEDOCGIAs.Remove(tHEDOCGIA);
+                dc.SaveChanges();
+            }
+            ViewBag.mathedocgia = tHEDOCGIA.MaTheDocGia;
+            ViewBag.DsSach = dc.SACHes.ToList();
+            ViewBag.Dsthedocgia = dc.THEDOCGIAs.ToList();
+            return RedirectToAction("IndexTDG");
+        }
         public ActionResult Formxemthongthedocgia(string id)
         {
             DoanquanlysachV3.Models.THEDOCGIA tHEDOCGIA = dc.THEDOCGIAs.Find(id);
