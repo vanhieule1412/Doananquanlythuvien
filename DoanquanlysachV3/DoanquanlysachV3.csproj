@@ -264,7 +264,9 @@
     </Compile>
     <Compile Include="Models\Cchitietphieudat.cs" />
     <Compile Include="Models\Cchitietsachtacgia.cs" />
+    <Compile Include="Models\CSach.cs" />
     <Compile Include="Models\CSachPK.cs" />
+    <Compile Include="Models\CTheLoai.cs" />
     <Compile Include="Models\DOCGIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

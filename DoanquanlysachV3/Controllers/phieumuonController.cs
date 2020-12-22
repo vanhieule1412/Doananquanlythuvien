@@ -14,32 +14,5 @@ namespace DoanquanlysachV3.Controllers
         {
             return View(dc.PHIEUMUONs.ToList());
         }
-        public ActionResult Formxoaphieumuon(string id)
-        {
-            
-            Models.PHIEUMUON pHIEUMUON = dc.PHIEUMUONs.Find(id);
-          
-           
-            if (pHIEUMUON != null)
-            {
-                return View(pHIEUMUON);
-            }
-            return RedirectToAction("IndexPM");
-        }
-        //public ActionResult xoaphieumuon(string id)
-        //{
-
-        //    Models.PHIEUMUON pHIEUMUON = dc.PHIEUMUONs.Find(id);
-        //    foreach (var item in pHIEUMUON.MaPhieuMuon)
-        //    {
-        //        if (pHIEUMUON != null)
-        //        {
-        //            dc.PHIEUMUONs.Remove(pHIEUMUON);
-        //            dc.SaveChanges();
-        //        }
-        //    }
-        //    return RedirectToAction("IndexPM");
-        //}
-
     }
 }

@@ -5,7 +5,7 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 
-<h2>IndexPM</h2>
+<h2>Danh sách phiếu mượn</h2>
 
 
 <table class="table">
@@ -28,27 +28,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.MaPhieuMuon)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NgayMuon)
+            @{ 
+                string ngaymuon = item.NgayMuon.Value.ToShortDateString();
+            }
+            @Html.DisplayFor(modelItem => ngaymuon)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NgayTra)
+            @{
+                string ngaytra = item.NgayTra.Value.ToShortDateString();
+            }
+            @Html.DisplayFor(modelItem => ngaytra)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaTheDocGia)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SoLuongSachMuon)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Formxoaphieumuon", new {  id=item.MaPhieuMuon })
         </td>
     </tr>
 }

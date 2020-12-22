@@ -35,11 +35,6 @@ namespace DoanquanlysachV3.Controllers
             ViewBag.Dsthedocgia = dc.THEDOCGIAs.ToList();
             return RedirectToAction("IndexTDG");
         }
-        public ActionResult Formxemthongthedocgia(string id)
-        {
-            DoanquanlysachV3.Models.THEDOCGIA tHEDOCGIA = dc.THEDOCGIAs.Find(id);
-            return View(tHEDOCGIA);
-        }
         public ActionResult Formthemphieumuon(string id)
         {
             Models.THEDOCGIA tHEDOCGIA = dc.THEDOCGIAs.Find(id);

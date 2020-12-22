@@ -25,8 +25,11 @@ namespace DoanquanlysachV3.Controllers
             {
                 dc.THELOAIs.Add(tHELOAI);
                 dc.SaveChanges();
+                return RedirectToAction("IndexTL");
             }
-            return RedirectToAction("IndexTL");
+            return View("Formthemtheloai");
+            
+            
         }
         public ActionResult Formsuatheloai(string id)
         {

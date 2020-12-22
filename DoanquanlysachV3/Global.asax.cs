@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace DoanquanlysachV3
 {
@@ -21,6 +21,7 @@ namespace DoanquanlysachV3
             Session["DSsach"] = new List<DoanquanlysachV3.Models.SACH>();
             Session["DSdocgia"] = new List<DoanquanlysachV3.Models.SACH>();
             Session["DSchitiet"] = new List<DoanquanlysachV3.Models.Cchitietsachtacgia>();
+            Session["DSphieumuon"] = new List<DoanquanlysachV3.Models.Cchitietphieudat>();
 
 
         }
