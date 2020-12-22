@@ -8,6 +8,7 @@ namespace DoanquanlysachV3.Models
 {
     public class CTheLoai
     {
+        [CtheloaiPK(ErrorMessage ="Trùng khóa chính")]
         [Required(ErrorMessage ="Nhập mã số")]
         [Display(Name ="Mã Thể Loại")]
         public string MaTheLoai { get; set; }

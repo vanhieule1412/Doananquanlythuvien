@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.MaNhaXuatBan, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Tên Nhà Xuất Bản", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @{
                 SelectList dsnhaxuatban = new SelectList(ViewBag.DSnxb, "MaNhaXuatBan", "TenNhaXuatBan");
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.MaTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Tên Thể Loại", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @{
                 SelectList dstheloai = new SelectList(ViewBag.DStheloai, "MaTheLoai", "TenTheLoai");
@@ -48,17 +48,17 @@
             @Html.ValidationMessageFor(model => model.MaTheLoai, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.MaTacGia, htmlAttributes: new { @class = "control-label col-md-2" })
+    @*<div class="form-group">
+        @Html.Label(model => model.MaTacGia, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @{
                 SelectList dstacgia = new SelectList(ViewBag.DStacgia, "MaTacGia", "TenTacGia");
             }
             @Html.DropDownListFor(Model => Model.MaTacGia, dstacgia, "----Select List----", new { @Class = "form-control" })
-            @*@Html.EditorFor(model => model.MaTheLoai, new { htmlAttributes = new { @class = "form-control" } })*@
+           
             @Html.ValidationMessageFor(model => model.MaTacGia, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })

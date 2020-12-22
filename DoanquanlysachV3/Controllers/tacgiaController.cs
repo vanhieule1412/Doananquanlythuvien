@@ -26,8 +26,10 @@ namespace DoanquanlysachV3.Controllers
             {
                 dc.TACGIAs.Add(tACGIA);
                 dc.SaveChanges();
+                return RedirectToAction("IndexTG");
             }
-            return RedirectToAction("IndexTG");
+            return View("Formthemtacgia");
+            
         }
         public ActionResult Formsuatacgia(string id)
         {

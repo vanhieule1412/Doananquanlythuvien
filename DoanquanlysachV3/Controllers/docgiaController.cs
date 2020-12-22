@@ -30,9 +30,11 @@ namespace DoanquanlysachV3.Controllers
                 
                 dc.DOCGIAs.Add(dOCGIA);
                 dc.SaveChanges();
+                return RedirectToAction("IndexDG");
             }
+            return View("Formthemdocgia");
            
-            return RedirectToAction("IndexDG");
+          
         }
         public ActionResult Formsuadocgia(string id)
         {
@@ -53,14 +55,26 @@ namespace DoanquanlysachV3.Controllers
         }
         public ActionResult Formxoadocgia(string id)
         {
+            bool coXoa = true;
             DoanquanlysachV3.Models.DOCGIA dOCGIA = dc.DOCGIAs.Find(id);
             //if (dOCGIA != null)
             //{
             //    dc.DOCGIAs.Remove(dOCGIA);
             //    dc.SaveChanges();
             //}
+            foreach (Models.THEDOCGIA tHEDOCGIA in dc.THEDOCGIAs.Where(x=>x.MaDocGia==id))
+            {
+                coXoa = false;
+                break;
+            }
+            ViewBag.Xoadocgia = coXoa;
+            if (dOCGIA != null)
+            {
+                return View(dOCGIA);
+            }
+            return RedirectToAction("IndexDG");
 
-            return View(dOCGIA);
+            
         }
         public ActionResult xoadocgia(string id)
         {
@@ -90,9 +104,11 @@ namespace DoanquanlysachV3.Controllers
             {
                 dc.THEDOCGIAs.Add(tHEDOCGIA);
                 dc.SaveChanges();
+                return RedirectToAction("IndexDG");
             }
+            return View("Formtaothedocgia");
           
-            return RedirectToAction("IndexDG");
+           
             
         }
 

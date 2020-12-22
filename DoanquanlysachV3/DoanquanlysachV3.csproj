@@ -264,9 +264,20 @@
     </Compile>
     <Compile Include="Models\Cchitietphieudat.cs" />
     <Compile Include="Models\Cchitietsachtacgia.cs" />
+    <Compile Include="Models\Cdocgia.cs" />
+    <Compile Include="Models\CdocgiaPK.cs" />
+    <Compile Include="Models\Cnxb.cs" />
+    <Compile Include="Models\CnxbPK.cs" />
+    <Compile Include="Models\Cphieumuon.cs" />
+    <Compile Include="Models\CphieumuonPK.cs" />
     <Compile Include="Models\CSach.cs" />
     <Compile Include="Models\CSachPK.cs" />
+    <Compile Include="Models\Ctacgia.cs" />
+    <Compile Include="Models\CtacgiaPK.cs" />
+    <Compile Include="Models\Cthedocgia.cs" />
+    <Compile Include="Models\CthedocgiaPK.cs" />
     <Compile Include="Models\CTheLoai.cs" />
+    <Compile Include="Models\CtheloaiPK.cs" />
     <Compile Include="Models\DOCGIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -5,14 +5,14 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 namespace DoanquanlysachV3.Models
 {
-    public class CSachPK:ValidationAttribute
+    public class CphieumuonPK:ValidationAttribute
     {
         private Models.QuanLyThuVienEntities dc = new QuanLyThuVienEntities();
         public override bool IsValid(object value)
         {
-            string MaSach = value.ToString();
-            Models.SACH sACH = dc.SACHes.Find(MaSach);
-            if (sACH == null) return true;
+            string MaPhieuMuon = value.ToString();
+            Models.PHIEUMUON a = dc.PHIEUMUONs.Find(MaPhieuMuon);
+            if (a == null) return true;
             return false;
         }
     }

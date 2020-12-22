@@ -12,6 +12,7 @@ namespace DoanquanlysachV3.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    [MetadataType(typeof(Models.Ctacgia))]
     public partial class TACGIA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

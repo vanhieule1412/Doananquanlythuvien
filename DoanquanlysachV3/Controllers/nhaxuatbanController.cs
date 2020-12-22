@@ -25,9 +25,11 @@ namespace DoanquanlysachV3.Controllers
             {
                 dc.NHAXUATBANs.Add(nHAXUATBAN);
                 dc.SaveChanges();
+                return RedirectToAction("IndexNXB");
             }
+            return View("Formthemnhaxuatban");
 
-            return RedirectToAction("IndexNXB");
+            
         }
         public ActionResult Formsuanhaxuatban(string id)
         {

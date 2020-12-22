@@ -20,7 +20,22 @@ namespace DoanquanlysachV3.Controllers
             ViewBag.mathedocgia = tHEDOCGIA.MaTheDocGia;
             ViewBag.DsSach = dc.SACHes.ToList();
             ViewBag.Dsthedocgia = dc.THEDOCGIAs.ToList();
-            return View(tHEDOCGIA);
+            bool coXoa = true;
+           
+            foreach (Models.PHIEUMUON t in dc.PHIEUMUONs.Where(x => x.MaTheDocGia == id))
+            {
+                coXoa = false;
+                break;
+            }
+            ViewBag.XoaThehocvien = coXoa;
+            if (tHEDOCGIA != null)
+            {
+              
+                return View(tHEDOCGIA);
+            }
+            return RedirectToAction("IndexTDG");
+
+          
         }
         public ActionResult xoathedocgia(string id)
         {
@@ -57,10 +72,11 @@ namespace DoanquanlysachV3.Controllers
             
                 dc.PHIEUMUONs.Add(pHIEUMUON);
                 dc.SaveChanges();
+                return RedirectToAction("IndexTDG");
             }
             ViewBag.DsSach = dc.SACHes.ToList();
             ViewBag.Dsthedocgia = dc.THEDOCGIAs.ToList();
-            return RedirectToAction("IndexTDG");
+            return View("Formthemphieumuon");
         }
         public ActionResult chonnhieusach(string id)
         {

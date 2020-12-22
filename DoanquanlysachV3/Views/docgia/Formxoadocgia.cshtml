@@ -4,35 +4,47 @@
     ViewBag.Title = "Formxoadocgia";
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
-
+@if (ViewBag.Xoadocgia == true)
+{
 <h3>Bạn có muốn xóa đọc giả này chứ ?</h3>
-<div>
-   
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaDocGia)
-        </dt>
+}
+else
+{
+    <h3>Đọc giả này đã tạo thẻ</h3>
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.MaDocGia)
-        </dd>
+    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDocGia)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaDocGia)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDocGia)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.MaDocGia)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.TenDocGia)
+            </dt>
 
-    @using (Html.BeginForm("xoadocgia","docgia",new {id=Model.MaDocGia })) {
-        @Html.AntiForgeryToken()
+            <dd>
+                @Html.DisplayFor(model => model.TenDocGia)
+            </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+        </dl>
+
+        @using (Html.BeginForm("xoadocgia", "docgia", new { id = Model.MaDocGia }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                @if (ViewBag.Xoadocgia == true)
+                {
+                    <input type="submit" value="Xóa" class="btn btn-primary" />
+                }
+
+            </div>
             @Html.ActionLink("Trở về danh sách đọc giả", "IndexDG")
-        </div>
-    }
-</div>
+        }
+    </div>

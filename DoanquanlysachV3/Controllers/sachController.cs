@@ -144,18 +144,23 @@ namespace DoanquanlysachV3.Controllers
             //        return RedirectToAction("IndexS");
             //    }
             //}
-
-            List<Models.TACGIA> ds = Session["DStacgia"] as List<Models.TACGIA>;
-            //dc.TACGIAs.AddRange(ds);
-            foreach (var item in ds)
+            if (ModelState.IsValid)
             {
-                sACH.TACGIAs.Add(dc.TACGIAs.Find(item.MaTacGia));
-
-
-
+                List<Models.TACGIA> ds = Session["DStacgia"] as List<Models.TACGIA>;
+                //dc.TACGIAs.AddRange(ds);
+                foreach (var item in ds)
+                {
+                    sACH.TACGIAs.Add(dc.TACGIAs.Find(item.MaTacGia));
+                }
+                dc.SACHes.Add(sACH);
+                dc.SaveChanges();
+                return RedirectToAction("IndexS");
             }
-            dc.SACHes.Add(sACH);
-            dc.SaveChanges();
+            ViewBag.DSnxb = dc.NHAXUATBANs.ToList();
+            ViewBag.DStheloai = dc.THELOAIs.ToList();
+            //ViewBag.DStacgia = new SelectList(dc.TACGIAs, "MaTacGia", "TenTacGia");
+            ViewBag.DStacgia = dc.TACGIAs.ToList();
+            return View("Formthemsach");
             //return RedirectToAction("IndexS");
 
 
@@ -163,11 +168,8 @@ namespace DoanquanlysachV3.Controllers
 
             //return RedirectToAction("IndexS");
         
-            ViewBag.DSnxb = dc.NHAXUATBANs.ToList();
-            ViewBag.DStheloai = dc.THELOAIs.ToList();
-            //ViewBag.DStacgia = new SelectList(dc.TACGIAs, "MaTacGia", "TenTacGia");
-            ViewBag.DStacgia = dc.TACGIAs.ToList();
-            return RedirectToAction("IndexS");
+          
+          
         }
         public ActionResult chonnhieutacgia(string id)
         {
