@@ -32,16 +32,16 @@
                     <div class="col-md-8 ">
                         <ul class="nav list-group-horizontal d-flex justify-content-xl-start ">
                             <li class="nav-item list-group-item">
-                                @Html.ActionLink("Quản lý NXB", "IndexNXB", "nhaxuatban")
+                                @Html.ActionLink("NHÀ XUẤT BẢN", "IndexNXB", "nhaxuatban")
                             </li>
                             <li class="nav-item list-group-item ">
-                                @Html.ActionLink("Quản lý TÁCGIẢ", "IndexTG", "tacgia")
+                                @Html.ActionLink("TÁC GIẢ", "IndexTG", "tacgia")
                             </li>
                             <li class="nav-item list-group-item ">
-                                @Html.ActionLink("Quản lý THỂLOẠI", "IndexTL", "theloai")
+                                @Html.ActionLink("THỂ LOẠI", "IndexTL", "theloai")
                             </li>
                             <li class="nav-item list-group-item ">
-                                @Html.ActionLink("Quản lý SÁCH", "IndexS", "sach")
+                                @Html.ActionLink("SÁCH", "IndexS", "sach")
                             </li>
                             @*<li class="nav-item list-group-item ">
             @Html.ActionLink("Chọn nhiều tác giả", "IndexCN", "chonhnieu")
@@ -69,9 +69,9 @@
         </li>*@
                         </ul>
                     </div>
-                    @*<div class="col-md-4">
+                    <div class="col-md-4">
                             <ul class="nav list-group-horizontal float-right">
-                                @if (Session["dociga"] == null)
+                                @*@if (Session["dociga"] == null)
                                 {
                                     <li class="nav-item list-group-item bg-primary ">
                                         @Html.ActionLink("Quản lý đọc giả", "IndexDG", null, new { @Class = "text-white" })
@@ -91,9 +91,10 @@
                                     <li class="nav-item list-group-item bg-primary ">
                                         @Html.ActionLink("Đăng xuất", "dangxuatHeThong", null, new { @Class = "text-white" })
                                     </li>
-                                }
+                                }*@
+
                             </ul>
-                        </div>*@
+                        </div>
                 </div>
             </div>
             <div class="card-body">
@@ -101,9 +102,9 @@
                     @RenderBody()
                 </div>
             </div>
-            <div class="card-footer">
+            @*<div class="card-footer">
                 Footer
-            </div>
+            </div>*@
 
         </div>
 
